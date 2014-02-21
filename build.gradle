@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        maven { url 'http://jcenter.bintray.com' }
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.3'
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'bintray'
+
+repositories {
+    //mavenCentral()
+    maven { url 'http://jcenter.bintray.com' }
+}
+
+dependencies {
+    compile 'org.apache.pdfbox:pdfbox:1.8.4'
+    compile 'org.codehaus.groovy:groovy-all:2.2.1'
+    testCompile "org.spockframework:spock-core:0.7-groovy-2.0" 
+}
+
+
+artifactId='pdf-form-to-xml'
+project.group='uk.ox.brc'
+project.version='1.0.0'
+
+//publishing {
+//  publications {
+//      mavenStuff(MavenPublication) {
+//          from components.java
+//      }
+//  }
+//}
+
+//bintray {
+//    user = ''
+//    key = ''
+//    publications = ['mavenStuff'] // When uploading Maven-based publication files
+//    pkg {
+//        repo = 'spikeheap'
+//        //userOrg = 'modelcatalogue' // an optional organization name when the repo belongs to one of the user's orgs
+//        name = artifactId
+//        desc = 'Grails unit testing fixtures'
+//        licenses = ['MIT']
+//        labels = ['pdf', 'form', 'xml']
+//    }
+//    dryRun = false // whether to run this as dry-run, without deploying
+//}
